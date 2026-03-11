@@ -2999,7 +2999,7 @@ function BeeSwarmSimulator(DATA){
         
         basic:{
             
-            u:0,v:0,meshPartId:0,gatherSpeed:1,gatherAmount:100,speed:100,convertSpeed:0,convertAmount:1000000,attack:999,energy:1000,favoriteTreat:'sunflowerSeed',rarity:'common',color:'white',description:'An ordinary bee. Well rounded and hard working!',giftedHiveBonus:{oper:'*',stat:'redPollen,bluePollen,whitePollen',num:1.2}
+            u:0,v:0,meshPartId:0,gatherSpeed:1,gatherAmount:100,speed:100,convertSpeed:0,convertAmount:Infinity,attack:1000000,energy:Infinity,favoriteTreat:'sunflowerSeed',rarity:'common',color:'white',description:'An ordinary bee. Well rounded and hard working!',giftedHiveBonus:{oper:'*',stat:'redPollen,bluePollen,whitePollen',num:1.2}
         },
         
         looker:{
@@ -28228,7 +28228,7 @@ function BeeSwarmSimulator(DATA){
                 name:'royalJelly',
                 slot:'item',
                 viewMatrix:[32+4.5,12,50.25-4.5,-MATH.HALF_PI-MATH.QUATER_PI,0.02],
-                cost:[(n,i=1)=>Math.floor(Math.min(n*2500+25000,1000000)*i)+' honey'],
+                cost:100+' honey'],
                 desc:'Can be fed to a bee to transform it into a different type!'
             }],
             currentIndex:0,message:'Explore Royal Jelly Shop',currentIncrement:0,increments:[1,10,10e1,10e2,10e3,10e4]
@@ -28242,7 +28242,7 @@ function BeeSwarmSimulator(DATA){
                 name:'basicEgg',
                 slot:'item',
                 viewMatrix:[10-4.5,1,13.5-4.5,MATH.HALF_PI+MATH.QUATER_PI,0.02],
-                cost:[(n,i=1)=>(Math.min(500*Math.pow(1.35,n)*i,10000000)|0)+' honey'],
+                cost:[100+' honey'],
                 desc:'Can be used to hatch a Basic Bee!'
             }],
             currentIndex:0,message:'Explore Basic Egg Shop'
@@ -34760,6 +34760,7 @@ function BeeSwarmSimulator(DATA){
     
 
 }
+
 
 
 
