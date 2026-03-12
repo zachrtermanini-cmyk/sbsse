@@ -2999,12 +2999,12 @@ function BeeSwarmSimulator(DATA){
         
         basic:{
             
-            u:0,v:0,meshPartId:0,gatherSpeed:1,gatherAmount:100,speed:10,convertSpeed:0,convertAmount:Infinity,attack:1000000000,energy:Infinity,favoriteTreat:'sunflowerSeed',rarity:'common',color:'white',description:'An ordinary bee. Well rounded and hard working!',giftedHiveBonus:{oper:'*',stat:'redPollen,bluePollen,whitePollen',num:1.2}
+            u:0,v:0,meshPartId:0,gatherSpeed:1,gatherAmount:100,speed:100,convertSpeed:0,convertAmount:Infinity,attack:1000000000,energy:Infinity,favoriteTreat:'sunflowerSeed',rarity:'common',color:'white',description:'An ordinary bee. Well rounded and hard working!',giftedHiveBonus:{oper:'*',stat:'redPollen,bluePollen,whitePollen',num:1.2}
         },
         
         looker:{
             
-            u:128/2048,v:0,meshPartId:0,gatherSpeed:4,gatherAmount:13,speed:0,tokens:['focus'],convertSpeed:0,convertAmount:Infinity,attack:1,attackTokens:['focus'],energy:20,favoriteTreat:'sunflowerSeed',rarity:'rare',color:'white',description:'This silent bee is always watching and gaining valuable insights.',giftedHiveBonus:{oper:'+',stat:'criticalPower',num:0.25}
+            u:128/2048,v:0,meshPartId:0,gatherSpeed:4,gatherAmount:10,speed:14,tokens:['focus'],convertSpeed:4,convertAmount:200,attack:1,attackTokens:['focus'],energy:20,favoriteTreat:'sunflowerSeed',rarity:'rare',color:'white',description:'This silent bee is always watching and gaining valuable insights.',giftedHiveBonus:{oper:'+',stat:'criticalPower',num:0.25}
         },
         
         music:{
@@ -26643,7 +26643,7 @@ function BeeSwarmSimulator(DATA){
                 out.removeAirFrictionUntilGrounded=false
                 
                 if(user.keys[' ']||jumpingButton){
-                    out.grounded=true
+                    out.grounded=false
                     out.body.velocity.y=out.jumpPower
                 }
                 
@@ -27861,7 +27861,7 @@ function BeeSwarmSimulator(DATA){
                 name:'hiveSlot',
                 slot:'item',
                 viewMatrix:[-10,37,74,MATH.HALF_PI,0],
-                cost:['100 honey'],
+                cost:[n=>Math.floor(Math.pow(1.375,n)*1000000)+' honey'],
                 desc:'Increases the capacity of your hive, allowing you to hatch an additional bee!'
             }],
             currentIndex:0,message:'Explore Top Shop'
@@ -28228,7 +28228,7 @@ function BeeSwarmSimulator(DATA){
                 name:'royalJelly',
                 slot:'item',
                 viewMatrix:[32+4.5,12,50.25-4.5,-MATH.HALF_PI-MATH.QUATER_PI,0.02],
-                cost:['100 honey'],
+                cost:[(n,i=1)=>Math.floor(Math.min(n*2500+25000,1000000)*i)+' honey'],
                 desc:'Can be fed to a bee to transform it into a different type!'
             }],
             currentIndex:0,message:'Explore Royal Jelly Shop',currentIncrement:0,increments:[1,10,10e1,10e2,10e3,10e4]
@@ -28242,7 +28242,7 @@ function BeeSwarmSimulator(DATA){
                 name:'basicEgg',
                 slot:'item',
                 viewMatrix:[10-4.5,1,13.5-4.5,MATH.HALF_PI+MATH.QUATER_PI,0.02],
-                cost:['100 honey'],
+                cost:[(n,i=1)=>(Math.min(500*Math.pow(1.35,n)*i,10000000)|0)+' honey'],
                 desc:'Can be used to hatch a Basic Bee!'
             }],
             currentIndex:0,message:'Explore Basic Egg Shop'
@@ -34760,6 +34760,7 @@ function BeeSwarmSimulator(DATA){
     
 
 }
+
 
 
 
